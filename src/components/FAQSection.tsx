@@ -5,8 +5,18 @@ import {
   AccordionItem, 
   AccordionTrigger 
 } from '@/components/ui/accordion';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { useState } from 'react';
 
 const FAQSection = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <section id="faq" className="section-padding bg-white">
       <div className="container mx-auto max-w-4xl">
@@ -79,19 +89,84 @@ const FAQSection = () => {
           <p className="text-lg text-body mb-6">
             ¡Asegura tu lugar hoy mismo!
           </p>
-          <Button 
-            variant="utec"
-            size="lg"
-            asChild
-          >
-            <a 
-              href="https://admin.eventplus.app/eventInfoThree?eventId=556168"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Inscribirme
-            </a>
-          </Button>
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+              <Button 
+                variant="utec"
+                size="lg"
+              >
+                Inscribirme
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle className="text-center text-xl font-bold text-secondary">
+                  Opciones de Inscripción
+                </DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4 py-4">
+                <Button
+                  variant="outline"
+                  className="w-full h-auto p-4 text-left justify-start"
+                  asChild
+                >
+                  <a
+                    href="https://forms.zohopublic.com/ehernandezut1/form/EventRegistration/formperma/wOPlPZf0Zb1W9HhR1rYA-jtg4OmRzMayBoYTryKwCPo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div>
+                      <div className="font-semibold text-secondary">Postula a la Hackathon</div>
+                      <div className="text-sm text-muted-foreground mt-1">
+                        Participa en la hackathon completa con workshops y mentorías
+                      </div>
+                    </div>
+                  </a>
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  className="w-full h-auto p-4 text-left justify-start"
+                  asChild
+                >
+                  <a
+                    href="https://luma.com/j87h2pzo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div>
+                      <div className="font-semibold text-secondary">Lightning Talks - Miércoles</div>
+                      <div className="text-sm text-muted-foreground mt-1">
+                        Únete a las charlas inspiradoras del miércoles
+                      </div>
+                    </div>
+                  </a>
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  className="w-full h-auto p-4 text-left justify-start"
+                  asChild
+                >
+                  <a
+                    href="https://luma.com/riu8c59n"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div>
+                      <div className="font-semibold text-secondary">Lightning Talks - Viernes</div>
+                      <div className="text-sm text-muted-foreground mt-1">
+                        Únete a las charlas inspiradoras del viernes
+                      </div>
+                    </div>
+                  </a>
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>
